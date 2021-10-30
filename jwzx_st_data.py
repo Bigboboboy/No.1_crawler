@@ -15,7 +15,8 @@ def get_main_page(url):
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36",
                     "Referer": "http://jwc.cqupt.edu.cn/kebiao/kb_stu.php?xh=2018211781",
                     "Upgrade-Insecure-Requests": "1",
-                    "Cookie": "_gscu_1026695571=63867326hevvfa19; vvjcgVbcZbczS=5UjfqIslYF54LY2N3mTP12hqnwTcLh_75PXs03OrqkK69fmXrrwLXt73XW7tfe_PZr6tDnzxgeG0UVVMYuLsU0q; mLvnBZTNP4mtS=5THlPEuRJEVOYGDGNgH2M7jIfkctzEaws8p5RH3qXzQFtIpbX2dyXUPQBmCM9.x9SpjZOw8xwt8HLOOgZqp0R6A; PHPSESSID=ST-141004-aDW6iOS6C84o6UmV1-IT94rIAqAauthserver2; mLvnBZTNP4mtT=53U0NYCmet3GqqqmZ0i2d5GLfqGTbu6SxuvK1N1XCDj3q6LUdiMP6.377cf1d9y.UzGUfu9vtFzO0KCTcYpgEDXNXcY7hZz6_Q5RoXYNu96G2Cfw4uJ6mcsYnvGS4d9cg19p_gpNCOddvyIkUAOeuA86FKOb5RfzO3aJADaf_kgTfAQ1zoh3XhjQK.4ctQ1Fd4Tv6eoFhCdrIS659KY.w0Pv5w6wWIRWoYPFGDWy1fQmPBrhYZ9Nvff037VCiA84ia59sD7MaGEweqGNIAqeYJXEV3F7V05e8pvvjf6WotDxG"}
+                    "Cookie":"_gscu_1026695571=63867326hevvfa19; vvjcgVbcZbczS=5UjfqIslYF54LY2N3mTP12hqnwTcLh_75PXs03OrqkK69fmXrrwLXt73XW7tfe_PZr6tDnzxgeG0UVVMYuLsU0q; mLvnBZTNP4mtS=5THlPEuRJEVOYGDGNgH2M7jIfkctzEaws8p5RH3qXzQFtIpbX2dyXUPQBmCM9.x9SpjZOw8xwt8HLOOgZqp0R6A; PHPSESSID=ST-146435-JmtamC07Flad3McwBQINQgE6dG0authserver2; mLvnBZTNP4mtT=53U000DmeJAlqqqmZ01ry_AV3H6IEQ.Z8Ww4x5KCmcifqwqj1PP_DIcSVcVh0JC3vubBn2iIPs3B4.3HzoCtEN9FD.a5T1MSJ7hYspWPAk5uM8cDb3zHwfbuc3Tn0uzbUM1Al5SsVQJUY0.VxIePhZXthDvJ4y1u0k_LQrpLRADqDw_smSlPRZWIuE8Hsw6gg7s9VAOzOTcbJqTgziHAnQEfimZqkDKSbsT425JlzcPrpWmixtekbt6aOAQ0pdU.Br.zdCZG98l19mGFmWTdW7gvhl.v023ZBFcwSaE7Ixdo52xZF7EZl.uqHJT1oQodDpXVUkt2OP7ul0X6PKojMnc"
+    }
     r = requests.get(url, headers=headers)
     print(r.status_code)
     if r.status_code == 200:
@@ -56,7 +57,8 @@ def sav_to_file(data):
 
 
 if __name__ == '__main__':
-    url = "http://jwc.cqupt.edu.cn/kebiao/kb_stuList.php?jxb=A00211A1040110001"
+    class_id = 'A04211A2040580001'
+    url = f"http://jwc.cqupt.edu.cn/kebiao/kb_stuList.php?jxb={class_id}"
     html = get_main_page(url)
     for i in parse_main_page(html):
         sav_to_file(i)
